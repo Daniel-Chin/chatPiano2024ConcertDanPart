@@ -35,6 +35,7 @@ class MidiPlayer:
         if cls.singleton is None:
             raise ValueError('MidiPlayer is not initialized. You need to call MidiPlayer() at the start of everything.')
         if not os.path.isfile(filename):
+            print('Error. The file does not exist.')
             return 'Error. The file does not exist.'
         thread = threading.Thread(target=cls.singleton.play, args=(filename, ))
         thread.start()
